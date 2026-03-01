@@ -108,23 +108,23 @@ Input (12×256×256)
     ↓
     
 Adapted ConvStem (из EfficientNet-B0, 3 → 12 каналов)
-
     ↓
+    
 EfficientNet-B0 backbone (features_only=True)
-
     ↓
+    
 SEBlock (внимание по каналам)
-
     ↓
+    
 SpatialPyramidPooling (1×1, 2×2, 4×4)
-
     ↓
+    
 AdaptiveAvgPool2d(1)
-
     ↓
+    
 FC (feature_channels → 256) → BN → ReLU → Dropout → FC (256 → 1)
-
     ↓
+    
 Output (логит)
 
 #### Обучение

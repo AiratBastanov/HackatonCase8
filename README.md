@@ -29,7 +29,7 @@
 ### 📁 Структура проекта
 
 marine-debris-detector/
-marine-debris-detector/
+
 ├── preprocess.py # Загрузка и предобработка датасетов
 
 ├── dataset.py # PyTorch Dataset с аугментациями
@@ -106,19 +106,26 @@ figures/prob_hist.png
 Архитектура модели
 Input (12×256×256)
     ↓
-    Adapted ConvStem (из EfficientNet-B0, 3 → 12 каналов)
+    
+Adapted ConvStem (из EfficientNet-B0, 3 → 12 каналов)
+
     ↓
-    EfficientNet-B0 backbone (features_only=True)
+EfficientNet-B0 backbone (features_only=True)
+
     ↓
-    SEBlock (внимание по каналам)
+SEBlock (внимание по каналам)
+
     ↓
-    SpatialPyramidPooling (1×1, 2×2, 4×4)
+SpatialPyramidPooling (1×1, 2×2, 4×4)
+
     ↓
-    AdaptiveAvgPool2d(1)
+AdaptiveAvgPool2d(1)
+
     ↓
-    FC (feature_channels → 256) → BN → ReLU → Dropout → FC (256 → 1)
+FC (feature_channels → 256) → BN → ReLU → Dropout → FC (256 → 1)
+
     ↓
-    Output (логит)
+Output (логит)
 
 #### Обучение
 Loss: Focal Loss (γ=2.0) для борьбы с дисбалансом классов

@@ -27,6 +27,8 @@
 - **Лёгкая модель**: всего ~5 млн параметров, подходит для бортовых систем
 
 ### 📁 Структура проекта
+
+marine-debris-detector/
 marine-debris-detector/
 ├── preprocess.py # Загрузка и предобработка датасетов
 ├── dataset.py # PyTorch Dataset с аугментациями
@@ -36,9 +38,10 @@ marine-debris-detector/
 ├── requirements.txt # Зависимости
 ├── README.md # Документация
 └── data/ # Папка с датасетами (создаётся пользователем)
-├── patches/ # MARIDA
-├── MADOS/ # MADOS
-└── PLP2019_dataset/ # PLP2019
+├── MARIDA/ # MARIDA dataset
+│ └── patches/ # Патчи MARIDA
+├── MADOS/ # MADOS dataset
+└── PLP2019_dataset/ # PLP2019 dataset
 ### 📥 Используемые датасеты
 
 1. **[MARIDA](https://zenodo.org/records/5151941)** – патчи с масками мусора

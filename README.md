@@ -30,29 +30,42 @@
 
 marine-debris-detector/
 
+
 ├── preprocess.py # Загрузка и предобработка датасетов
+
 
 ├── dataset.py # PyTorch Dataset с аугментациями
 
+
 ├── model.py # Архитектура модели (EfficientNet-B0 + SE + SPP)
+
 
 ├── train.py # Скрипт обучения с ансамблем и калибровкой
 
+
 ├── eval.py # Оценка модели на тесте
+
 
 ├── requirements.txt # Зависимости
 
+
 ├── README.md # Документация
+
 
 └── data/ # Папка с датасетами (создаётся пользователем)
 
+
 ├── MARIDA/ # MARIDA dataset
+
 
 │ └── patches/ # Патчи MARIDA
 
+
 ├── MADOS/ # MADOS dataset
 
+
 └── PLP2019_dataset/ # PLP2019 dataset
+
 
 ### 📥 Используемые датасеты
 

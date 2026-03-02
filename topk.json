@@ -1,0 +1,8 @@
+{
+  "ckpts": [
+    "checkpoints\\epoch_29.pt",
+    "checkpoints\\epoch_41.pt",
+    "checkpoints\\epoch_48.pt"
+  ],
+  "channels": 12
+}

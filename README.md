@@ -30,42 +30,31 @@
 
 marine-debris-detector/
 
-
 ├── preprocess.py # Загрузка и предобработка датасетов
-
 
 ├── dataset.py # PyTorch Dataset с аугментациями
 
-
 ├── model.py # Архитектура модели (EfficientNet-B0 + SE + SPP)
-
 
 ├── train.py # Скрипт обучения с ансамблем и калибровкой
 
 
 ├── eval.py # Оценка модели на тесте
 
-
 ├── requirements.txt # Зависимости
 
-
 ├── README.md # Документация
-
 
 └── data/ # Папка с датасетами (создаётся пользователем)
 
 
 ├── MARIDA/ # MARIDA dataset
 
-
 │ └── patches/ # Патчи MARIDA
-
 
 ├── MADOS/ # MADOS dataset
 
-
 └── PLP2019_dataset/ # PLP2019 dataset
-
 
 ### 📥 Используемые датасеты
 
@@ -100,19 +89,33 @@ ensemble_threshold.json – порог для ансамбля (precision ≥ 0.
 
 #### Структура после обучения
 ├── 📁 processed/              # Создаётся после preprocess.py
+
 │   ├── 📄 train.npy
+
 │   ├── 📄 val.npy
+
 │   ├── 📄 test.npy
+
 │   └── 📄 meta.json
+
 │
+
 ├── 📁 checkpoints/            # Создаётся после train.py
+
 │   ├── 📄 best_f1.pt
+
 │   ├── 📄 best_prec.pt
+
 │   ├── 📄 calib.pkl
+
 │   ├── 📄 ensemble_threshold.json
+
 │   ├── 📄 topk.json
+
 │   └── 📄 epoch_*.pt
+
 │
+
 └── 📁 figures/                 # Создаётся после visualize.py
     ├── 📄 confusion_matrix.png
     ├── 📄 roc_curve.png

@@ -85,6 +85,39 @@ calib.pkl – калибратор для ансамбля
 
 ensemble_threshold.json – порог для ансамбля (precision ≥ 0.8 с макс. accuracy)
 
+#### Структура после обучения
+├── 📁 processed/              # Создаётся после preprocess.py
+│   ├── 📄 train.npy
+│   ├── 📄 val.npy
+│   ├── 📄 test.npy
+│   └── 📄 meta.json
+│
+├── 📁 checkpoints/            # Создаётся после train.py
+│   ├── 📄 best_f1.pt
+│   ├── 📄 best_prec.pt
+│   ├── 📄 calib.pkl
+│   ├── 📄 ensemble_threshold.json
+│   ├── 📄 topk.json
+│   └── 📄 epoch_*.pt
+│
+└── 📁 figures/                 # Создаётся после visualize.py
+    ├── 📄 confusion_matrix.png
+    ├── 📄 roc_curve.png
+    ├── 📄 pr_curve.png
+    └── 📄 prob_hist.png
+
+#### Гиперпараметры
+Параметр	Значение	Почему именно так
+Батч-сайз	32	Оптимально для GPU 8-12 ГБ
+Эпохи	50	 Запас эпох для обучения
+Оптимизатор	AdamW	Лучше Adam для weight decay
+Learning rate	1e-4	Стандарт для fine-tuning
+Weight decay	1e-5	Антипереобучение
+Loss	Focal Loss (γ=2.0)	Борьба с дисбалансом классов
+Сэмплинг	WeightedRandomSampler	Компенсация редкого класса
+Аугментации	Flip, Rotate, Affine, Spectral noise	Робастность к вариациям
+TTA	4 аугментации	Повышение точности на тесте
+
 #### Оценка
 python eval.py
 
@@ -101,6 +134,8 @@ figures/roc_curve.png
 figures/pr_curve.png
 
 figures/prob_hist.png
+
+Графики обучения есть в презентации
 
 #### Технические детали
 Архитектура модели
